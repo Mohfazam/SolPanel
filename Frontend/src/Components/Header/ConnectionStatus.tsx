@@ -12,7 +12,7 @@ export const ConnectionStatus = () => {
             <span className="text-sm text-[#a3a3a3] font-medium">
                 {connected ? "Connected" : "Connect"}
             </span>
-            <div>
+            <div className="ml-2">
                 <WalletMultiButton />
             </div>
              
