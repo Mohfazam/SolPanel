@@ -1,4 +1,5 @@
 import { BalanceCard } from "../Card/BalanceCard"
+import { RequestAirdrop } from "../Card/RequestAirDrop"
 import { SolHEader } from "../Header/SolHeader"
 
 export const Layout = () => {
@@ -11,6 +12,7 @@ export const Layout = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <BalanceCard />
+                    <RequestAirdrop />
                 </div>
 
             </div>

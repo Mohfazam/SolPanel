@@ -1,4 +1,4 @@
-import { Wallet } from "lucide-react";
+import { Download  } from "lucide-react";
 import { CardTop } from "../UI/CardTop";
 import { useWallet, useConnection } from "@solana/wallet-adapter-react";
 import { ConnectionStatus } from "../Header/ConnectionStatus";
@@ -44,7 +44,7 @@ export const RequestAirdrop = () => {
     return (
         <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 h-[381px]">
             <div className="mb-12">
-                <CardTop Text="Balance" Icon={<Wallet size={24} />} />
+                <CardTop Text="Balance" Icon={<Download  size={24} />} />
             </div>
 
             {connected ? (
