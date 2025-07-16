@@ -1,11 +1,11 @@
-import { ConnectionStatus } from "./Header/ConnectionStatus"
-import { Network } from "./Header/Network"
+import { ConnectionStatus } from "./ConnectionStatus"
+import { Network } from "./Network"
 
 export const SolHEader = () => {
     return (
         <div className="flex items-center justify-between mb-8 bg-[#0a0a0a]">
             <h1 className="text-2xl font-medium text-[#ffffff]">
-                Solana Wallet
+                SolPanel
             </h1>
             <div className="flex items-center gap-3">
                 <div>

@@ -1,5 +1,5 @@
 import { BalanceCard } from "../Card/BalanceCard"
-import { SolHEader } from "../SolHeader"
+import { SolHEader } from "../Header/SolHeader"
 
 export const Layout = () => {
     return(

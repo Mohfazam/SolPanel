@@ -12,17 +12,11 @@ import {
   WalletModalProvider,
   //@ts-ignore
   WalletDisconnectButton,
-  WalletMultiButton
 } from '@solana/wallet-adapter-react-ui';
 //@ts-ignore
 import { clusterApiUrl } from '@solana/web3.js';
 
 import '@solana/wallet-adapter-react-ui/styles.css';
-
-import { RequestAirdrop } from "./Components/RequestAirdrop"
-import { ShowBalance } from './Components/ShowBalance';
-import { SendToken } from './Components/SendToken';
-import { SolHEader } from './Components/SolHeader';
 import { Layout } from './Components/Main/Layout';
 
 function App() {
