@@ -60,6 +60,7 @@ export const RequestAirdrop = () => {
 
                     <p className="text-[#a3a3a3]">Available balance</p>
                     <p className="text-[#a3a3a3]">1 SOL ≈ ${solPrice} USD</p>
+                    
                 </div>
             ) : (
                 <ConnectionStatus />
