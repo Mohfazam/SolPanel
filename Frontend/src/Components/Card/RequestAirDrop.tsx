@@ -49,7 +49,7 @@ export const RequestAirdrop = () => {
                 <CardTop Text="Request Airdrop" Icon={<Download  size={24} />} />
             </div>
 
-            <Input Text="Amount (SOL)" Placehoder="Enter amount (max 5)"/>
+            <Input Text="Amount (SOL)" Varient={5} Placehoder="Enter amount (max 5)"/>
         </div>
     );
 };
