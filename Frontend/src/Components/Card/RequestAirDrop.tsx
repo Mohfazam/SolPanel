@@ -5,7 +5,7 @@ import { useWallet, useConnection } from "@solana/wallet-adapter-react";
 import { useEffect, useState } from "react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import axios from "axios";
-import { Input } from "../UI/Input";
+import { NumberInput } from "../UI/NumberInput";
 
 export const RequestAirdrop = () => {
     const [solBal, setSolBal] = useState(0);
@@ -49,7 +49,7 @@ export const RequestAirdrop = () => {
                 <CardTop Text="Request Airdrop" Icon={<Download  size={24} />} />
             </div>
 
-            <Input Text="Amount (SOL)" Varient={5} Placehoder="Enter amount (max 5)"/>
+            <NumberInput Text="Amount (SOL)" Max={5} Placeholder="Enter amount (max 5)"/>
         </div>
     );
 };
