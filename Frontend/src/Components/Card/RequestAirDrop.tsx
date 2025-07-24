@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import axios from "axios";
 import { NumberInput } from "../UI/NumberInput";
+import { Button } from "../UI/Button";
 
 export const RequestAirdrop = () => {
     const [solBal, setSolBal] = useState(0);
@@ -50,6 +51,8 @@ export const RequestAirdrop = () => {
             </div>
 
             <NumberInput Text="Amount (SOL)" Max={5} Placeholder="Enter amount (max 5)"/>
+
+            <Button text="Request AirDrop" />
         </div>
     );
 };
