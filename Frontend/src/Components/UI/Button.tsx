@@ -1,9 +1,9 @@
-import { useState } from "react"
+// import { useState } from "react"
 
 interface ButtonProps{
     text: string;
     disable?: boolean;
-    onClick: () => null;
+    onClick: () => void;
 }
 
 export const Button = ({text, disable, onClick}:ButtonProps) => {
