@@ -10,6 +10,7 @@ import { Button } from "../UI/Button";
 
 export const RequestAirdrop = () => {
     const [solBal, setSolBal] = useState(0);
+    const [refreshBalance, setRefreshBalance] = useState(false);
 
     const [input, setInput] = useState("");
     //@ts-ignore
@@ -44,15 +45,30 @@ export const RequestAirdrop = () => {
         
         fetchSolPrice();
         fetchBalance();
-    }, [connected, solBal, publicKey]);
+    }, [connected, solBal, publicKey, refreshBalance]);
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value);
     }
     
 
-    const handleAirDrop = () => {
-        
+    const handleAirDrop = async () => {
+        const amount = parseFloat(input);
+
+        if(!publicKey) return
+
+        try{
+            const signature = await connection.requestAirdrop(
+                publicKey,
+                amount * LAMPORTS_PER_SOL
+            );
+
+            await connection.confirmTransaction(signature, "confirmed");
+            alert("Air Drop Successfull");
+            setRefreshBalance(!refreshBalance);
+        } catch(error){
+            console.log("Airdrop failed error: " + error);
+        }
     }
 
 
