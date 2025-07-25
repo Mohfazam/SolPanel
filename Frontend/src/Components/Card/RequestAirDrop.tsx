@@ -10,6 +10,8 @@ import { Button } from "../UI/Button";
 
 export const RequestAirdrop = () => {
     const [solBal, setSolBal] = useState(0);
+
+    const [input, setInput] = useState("");
     //@ts-ignore
     const [solPrice, setSolPrice] = useState(0);
     const { connected } = useWallet();
@@ -42,7 +44,17 @@ export const RequestAirdrop = () => {
         
         fetchSolPrice();
         fetchBalance();
-    }, [connected, solBal, publicKey])
+    }, [connected, solBal, publicKey]);
+
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value);
+    }
+    
+
+    const handleAirDrop = () => {
+        
+    }
+
 
     return (
         <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 h-[381px]">
@@ -50,9 +62,11 @@ export const RequestAirdrop = () => {
                 <CardTop Text="Request Airdrop" Icon={<Download  size={24} />} />
             </div>
 
-            <NumberInput Text="Amount (SOL)" Max={5} Placeholder="Enter amount (max 5)"/>
+            <NumberInput Text="Amount (SOL)" Max={5} Placeholder="Enter amount (max 5)" onChange={handleInput}/>
 
-            <Button text="Request AirDrop" />
+            <div className="flex justify-center items-center w-full mt-3">
+                <Button onClick={handleAirDrop} text="Request AirDrop" disable={input.length === 0 ? true : false}/>
+            </div>
         </div>
     );
 };

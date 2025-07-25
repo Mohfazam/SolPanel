@@ -1,15 +1,16 @@
-// import { useState } from "react"
+import { useState } from "react"
 
 interface ButtonProps{
     text: string;
     disable?: boolean;
+    onClick: () => null;
 }
 
-export const Button = ({text, disable}:ButtonProps) => {
+export const Button = ({text, disable, onClick}:ButtonProps) => {
 
     return(
-        <div className={`w-full py-3  p-4 rounded-xl m-2 ${disable ? "bg-[#1a1a1a] text-[#737373]" : "bg-[#3b82f6] text-white"}`} >
-            <span>{text}</span>
+        <div className={`w-full h-full p-3 flex justify-center items-center rounded-xl text-center  ${disable ? "bg-[#1a1a1a] text-[#737373] cursor-not-allowed" : "bg-[#3b82f6] text-white cursor-pointer active:scale-95 transition-transform duration-150"}`} >
+            <button className="text-center" onClick={onClick}>{text}</button>
         </div>
     )
 }
