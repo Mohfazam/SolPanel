@@ -7,6 +7,7 @@ import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import axios from "axios";
 import { NumberInput } from "../UI/NumberInput";
 import { Button } from "../UI/Button";
+import { PulseLoader } from "react-spinners";
 
 export const RequestAirdrop = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -78,6 +79,7 @@ export const RequestAirdrop = () => {
             setRefreshBalance(!refreshBalance);
         } catch (error) {
             console.log("Airdrop failed error: " + error);
+            alert("Air Drop Limit Exceeded");
         }
         finally {
             setIsLoading(false);
@@ -91,13 +93,21 @@ export const RequestAirdrop = () => {
                 <CardTop Text="Request Airdrop" Icon={<Download size={24} />} />
             </div>
 
-            {connected ? (<div>
+            {connected ? (<>
+            
                 <NumberInput Text="Amount (SOL)" Max={5} Placeholder="Enter amount (max 5)" onChange={handleInput} />
 
                 <div className="flex justify-center items-center w-full mt-3">
-                    <Button onClick={handleAirDrop} text="Request AirDrop" disable={isLoading} />
+                    {isLoading ? (
+                        <div className="mt-4">
+                            <PulseLoader color="#3b82f6" />
+                        </div>
+                    ) : (
+                        <Button onClick={handleAirDrop} text="Request AirDrop" disable={input.length === 0 ? true : false} />
+                    )}
                 </div>
-            </div>
+            
+            </>
             ) : (
                 <div className="flex justify-center items-center text-white w-full  px-4 py-6 bg-[#141414] border border-[#2a2a2a] rounded-xl">
                     Connect the Wallet First
